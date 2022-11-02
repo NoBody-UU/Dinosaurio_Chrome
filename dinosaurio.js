@@ -229,12 +229,14 @@ function DetectarColision() {
             break; //al estar en orden, no puede chocar con más
         }else{
             if(IsCollision(dino, obstaculos[i], 10, 30, 15, 20)) {
+              GameOver();
                 var pregunta = confirm("PERDISTE!\n¿Deseas Jugar Nuevamente?")
                 if (pregunta){
                   // alert("Ok Let's Go")
                   window.location.reload();
                 }
-                else{GameOver();}
+                else{}
+               
             }
         }
     }
