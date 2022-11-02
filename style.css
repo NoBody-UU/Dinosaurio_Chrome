@@ -9,9 +9,17 @@ body{
   display: flex;
   align-items: center;
 }
+/* .refrescar:hover{
+  cursor: pointer;
+}
+.refrescar{
+  top: 6000px;
+background: #7e928b;
+
+} */
 
 .contenedor {
-  width: 920%;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   
@@ -22,12 +30,13 @@ body{
   overflow: hidden;
 }
 
+
 .mediodia {
   background-color: #ffdcf3;
 }
 
 .tarde {
-  background-color: #ffadad;
+  background-color: rgb(220, 188, 71);
 }
 
 .noche {
@@ -99,17 +108,17 @@ body{
 }
 
 .score{
-  width: 100px;
-  height: 30px;
+  width: 100%;
+  height: 100%;
 
   position: absolute;
-  top: 5px;
-  right: 15px;
+  top: 10px;
+  right: 100px;
   z-index: 10;
 
   color: #d48871;
   font-family: Verdana;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
   text-align: right;
 }

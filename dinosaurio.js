@@ -1,4 +1,9 @@
 
+//****** Audio ********//
+
+var myAudio = document.getElementById("MyAudio");
+myAudio.volume = 0.1;
+
 //****** GAME LOOP ********//
 
 var time = new Date();
@@ -85,15 +90,17 @@ function Update() {
 }
 
 function HandleKeyDown(ev){
-    if(ev.keyCode == 32){
+    if(ev.keyCode == 32, 38){
         Saltar();
     }
 }
 
 function Saltar(){
     if(dinoPosY === sueloY){
+      
         saltando = true;
         velY = impulso;
+
         dino.classList.remove("dino-corriendo");
     }
 }
@@ -196,14 +203,14 @@ function MoverNubes() {
 
 function GanarPuntos() {
     score++;
-    textoScore.innerText = score;
+    textoScore.innerText = 'Score: ' + score;
     if(score == 5){
         gameVel = 1.5;
         contenedor.classList.add("mediodia");
-    }else if(score == 10) {
+    }else if(score == 15) {
         gameVel = 2;
         contenedor.classList.add("tarde");
-    } else if(score == 20) {
+    } else if(score == 30) {
         gameVel = 3;
         contenedor.classList.add("noche");
     }
@@ -222,11 +229,17 @@ function DetectarColision() {
             break; //al estar en orden, no puede chocar con más
         }else{
             if(IsCollision(dino, obstaculos[i], 10, 30, 15, 20)) {
-                GameOver();
+                var pregunta = confirm("PERDISTE!\n¿Deseas Jugar Nuevamente?")
+                if (pregunta){
+                  // alert("Ok Let's Go")
+                  window.location.reload();
+                }
+                else{GameOver();}
             }
         }
     }
 }
+
 
 function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) {
     var aRect = a.getBoundingClientRect();
